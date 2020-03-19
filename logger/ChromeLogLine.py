@@ -13,11 +13,15 @@ from typing import List
 from typing_extensions import Final
 from .ChromeConstants import ChromeConstants
 
-kExpectedLogLineChunks: Final = 3
-kParsedLogDelimiterLimit: Final = 2
+# : Final
+kExpectedLogLineChunks = 3
+# : Final
+kParsedLogDelimiterLimit = 2
 
-kDateTime: Final = 0
-kLogLevel: Final = 1
+# : Final
+kDateTime = 0
+# : Final
+kLogLevel = 1
 
 class ChromeLogLine(object):
     def __init__(self, uncoloredLine: str) -> None:
