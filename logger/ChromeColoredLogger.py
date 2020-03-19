@@ -19,7 +19,8 @@ from colored import (fg,
 
 class ChromeColoredLogger(object):
     def __init__(self) -> None:
-        self.fmtPicker: Dict[str, Callable[[ChromeLogLine], None]] = {
+        self.fmtPicker # : Dict[str, Callable[[ChromeLogLine], None]] =
+        {
             "INFO": self.info,
             "WARNING": self.warning,
             "ERROR": self.error,
@@ -33,16 +34,17 @@ class ChromeColoredLogger(object):
             self.unknown(chromeLogLine)
 
     def info(self, logLine: ChromeLogLine) -> None:
-        print(f'{fg("green")} {logLine} {attr("reset")}')
-
-    def warning(self, logLine: ChromeLogLine) -> None:
-        print(f'{fg("yellow")} {logLine} {attr("reset")}')
+        # print(f'{fg("green")} {logLine} {attr("reset")}')
+        print("{}{}{}".format(fg("green"), logLine, attr("reset")))
 
     def error(self, logLine: ChromeLogLine) -> None:
-        print(f'{fg("red")} {logLine} {attr("reset")}')
+        # print(f'{fg("red")} {logLine} {attr("reset")}')
+        print("{}{}{}".format(fg("red"), logLine, attr("reset")))
 
     def fatal(self, logLine: ChromeLogLine) -> None:
-        print(f'{fg("red")} {logLine} {attr("reset")}')
+        # print(f'{fg("red")} {logLine} {attr("reset")}')
+        print("{}{}{}".format(fg("red"), logLine, attr("reset")))
 
     def unknown(self, logLine: ChromeLogLine) -> None:
-        print(f'{fg("blue")} {logLine} {attr("reset")}')
+        # print(f'{fg("blue")} {logLine} {attr("reset")}')
+        print("{}{}{}".format(fg("blue"), logLine, attr("reset")))
