@@ -52,10 +52,10 @@ class ChromeLogLine(object):
         # extract filename and message
         fileName, msg = rest.split(']', maxsplit=2)
 
-        self.fileName# : str
-            = fileName
-        self.message#: str
-            = msg
+        # : str
+        self.fileName = fileName
+        #: str
+        self.message = msg
 
     def __str__(self) -> str:
         # return f"{self.dateTime} {self.logLevel} {self.fileName} {self.message}"
