@@ -1,7 +1,6 @@
-# chrome-colored-logs
-Colored chromium logging
+# Chrome colored logging
 
-# Run
+## Run
 ```sh
-$ chrome 2>&1 | /path/to/chrome-colored-logs/ccl
+$ chrome 2>&1 | /path/to/ccl
 ```
