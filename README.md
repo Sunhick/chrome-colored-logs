@@ -2,7 +2,7 @@
 
 ## Dependencies
 ```sh
-$ pip3 install colored
+$ git deps
 ```
 
 ## Run

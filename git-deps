@@ -1,0 +1,7 @@
+# -*- mode: sh -*-
+#!/usr/bin/env bash
+
+pip3 install colored
+
+# For type hint checking
+# pip3 install mypy
