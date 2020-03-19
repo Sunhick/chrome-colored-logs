@@ -51,7 +51,7 @@ class ChromeLogLine(object):
             raise Exception(uncoloredLine)
 
         # extract filename and message
-        fileName, msg = rest.split(']', maxsplit=2)
+        fileName, msg = rest.split(']', maxsplit=1)
 
         # : str
         self.fileName = fileName
