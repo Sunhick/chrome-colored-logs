@@ -1,0 +1,12 @@
+# -*- mode: sh -*-
+#!/usr/bin/env bash
+
+RUNNER=$(command -v python3)
+SCRIPT_SRC="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
+
+# Run type checks. Don't pass command line args to mypy
+# generally those are main program args. If you want to pass
+# mypy cli then do it yourself.
+${RUNNER} -m mypy ${SCRIPT_SRC}/main.py && \
+# run the program
+${RUNNER} ${SCRIPT_SRC}/main.py "$@"
