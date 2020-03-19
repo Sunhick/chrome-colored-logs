@@ -41,7 +41,7 @@ def main(args: List[str]) -> None:
     installSigTermHandler()
 
     for rawLine in sys.stdin:
-        processLine(rawLine.strip())
+        processLine(rawLine.rstrip())
 
 if __name__ == "__main__":
     main(sys.argv[1:])
