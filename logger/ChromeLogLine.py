@@ -38,7 +38,6 @@ class ChromeLogLine(object):
 
         rawDateTime, level, rest = parsedLine
 
-        print(level)
         if (level not in expectedLogLevels):
             raise Exception(uncoloredLine)
 
@@ -61,4 +60,4 @@ class ChromeLogLine(object):
 
     def __str__(self) -> str:
         # return f"{self.dateTime} {self.logLevel} {self.fileName} {self.message}"
-        return "{} {} {} {}".format(self.dateTIme, self.logLevel, self.fileName, self.message)
+        return "{} {} {} {}".format(self.dateTime, self.logLevel, self.fileName, self.message)
