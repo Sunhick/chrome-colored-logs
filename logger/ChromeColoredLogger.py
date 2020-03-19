@@ -35,58 +35,62 @@ class ChromeColoredLogger(object):
 
     def info(self, logLine: ChromeLogLine) -> None:
         # print(f'{fg("green")} {logLine} {attr("reset")}')
-        print("{dateTime} {gc}{level:1.1} {fileName:30} {message}{reset}".format(
+        print("{dtc}{dateTime} {gc}{level:1.1} {fileName:30} {message}{reset}".format(
             dateTime = logLine.dateTime,
             level = logLine.logLevel,
             fileName = logLine.fileName,
             message = logLine.message,
             gc = fg("green"),
-            reset = attr("reset")
+            reset = attr("reset"),
+            dtc = fg("dark_gray"),
         ))
 
     def error(self, logLine: ChromeLogLine) -> None:
         # print(f'{fg("red")} {logLine} {attr("reset")}')
-        print("{dateTime} {rc}{level:1.1} {fileName:30} {message}{reset}".format(
+        print("{dtc}{dateTime} {rc}{level:1.1} {fileName:30} {message}{reset}".format(
             dateTime = logLine.dateTime,
             level = logLine.logLevel,
             fileName = logLine.fileName,
             message = logLine.message,
             reset = attr("reset"),
             rc = fg("red"),
+            dtc = fg("dark_gray"),
         ))
 
 
     def warning(self, logLine: ChromeLogLine) -> None:
         # print(f'{fg("red")} {logLine} {attr("reset")}')
-        print("{dateTime} {yc}{level:1.1} {fileName:30} {message}{reset}".format(
+        print("{dtc}{dateTime} {yc}{level:1.1} {fileName:30} {message}{reset}".format(
             dateTime = logLine.dateTime,
             level = logLine.logLevel,
             fileName = logLine.fileName,
             message = logLine.message,
             reset = attr("reset"),
             yc = fg("yellow"),
+            dtc = fg("dark_gray"),
         ))
 
 
     def fatal(self, logLine: ChromeLogLine) -> None:
         # print(f'{fg("red")} {logLine} {attr("reset")}')
-        print("{dateTime} {rc}{level:1.1} {fileName:30} {message}{reset}".format(
+        print("{dtc}{dateTime} {rc}{level:1.1} {fileName:30} {message}{reset}".format(
             dateTime = logLine.dateTime,
             level = logLine.logLevel,
             fileName = logLine.fileName,
             message = logLine.message,
             reset = attr("reset"),
             rc = fg("red"),
+            dtc = fg("dark_gray"),
         ))
 
     def unknown(self, logLine: ChromeLogLine) -> None:
         # print(f'{fg("blue")} {logLine} {attr("reset")}')
-        print("{}{}{}".format(fg("blue"), logLine, attr("reset")))
-        print("{dateTime} {bc}{level:1.1} {fileName:30} {message}{reset}".format(
+        print("{dtc}{dateTime} {bc}{level:1.1} {fileName:30} {message}{reset}".format(
             dateTime = logLine.dateTime,
             level = logLine.logLevel,
             fileName = logLine.fileName,
             message = logLine.message,
             bc = fg("blue"),
-            reset = attr("reset")
+            reset = attr("reset"),
+            dtc = fg("dark_gray"),
         ))
