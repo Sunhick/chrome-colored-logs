@@ -43,8 +43,10 @@ class ChromeLogLine(object):
             raise Exception(uncoloredLine)
 
         # Colorize the chrome log line
-        self.logLevel: str = level
-        self.dateTime: str = rawDateTime[1:]
+        # : str
+        self.logLevel = level
+        # : str
+        self.dateTime = rawDateTime[1:]
 
         if (len(rest.split(']')) != 2):
             raise Exception(uncoloredLine)
