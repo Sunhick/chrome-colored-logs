@@ -60,4 +60,4 @@ class ChromeLogLine(object):
 
     def __str__(self) -> str:
         # return f"{self.dateTime} {self.logLevel} {self.fileName} {self.message}"
-        return "{} {} {} {}".format(self.dateTime, self.logLevel, self.fileName, self.message)
+        return "{} {:1.1} {:30} {}".format(self.dateTime, self.logLevel, self.fileName, self.message)
