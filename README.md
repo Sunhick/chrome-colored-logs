@@ -7,5 +7,5 @@ $ pip3 install colored
 
 ## Run
 ```sh
-$ chrome 2>&1 | /path/to/ccl
+$ chrome | /path/to/ccl
 ```
