@@ -21,10 +21,10 @@ kLogLevel: Final = 1
 
 class ChromeLogLine(object):
     def __init__(self, uncoloredLine: str) -> None:
-        expectedLogLevels# : List[str]
-             = ["INFO", "ERROR", "WARNING", "FATAL"]
-        parsedLine# : List[str]
-             = uncoloredLine.split(ChromeConstants.kLogDelimiter,
+        # : List[str]
+        expectedLogLevels = ["INFO", "ERROR", "WARNING", "FATAL"]
+        # : List[str]
+        parsedLine = uncoloredLine.split(ChromeConstants.kLogDelimiter,
                                                     kParsedLogDelimiterLimit)
 
         # [28474:775:0318/214434.970195:INFO:content_main_runner_impl.cc(974)] Chrome is running in full browser mode.

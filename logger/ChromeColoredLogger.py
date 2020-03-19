@@ -19,8 +19,8 @@ from colored import (fg,
 
 class ChromeColoredLogger(object):
     def __init__(self) -> None:
-        self.fmtPicker # : Dict[str, Callable[[ChromeLogLine], None]] =
-        {
+        # : Dict[str, Callable[[ChromeLogLine], None]]
+        self.fmtPicker = {
             "INFO": self.info,
             "WARNING": self.warning,
             "ERROR": self.error,

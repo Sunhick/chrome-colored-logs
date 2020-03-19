@@ -17,8 +17,8 @@ from typing_extensions import Final
 
 from logger import *
 
-coloredLog# : ChromeColoredLogger
-    = ChromeColoredLogger()
+# : ChromeColoredLogger
+coloredLog = ChromeColoredLogger()
 
 def quit(signum, frame) -> None:
     # TODO: might need threading.
@@ -29,8 +29,8 @@ def installSigTermHandler() -> None:
 
 def processLine(uncoloredLine: str) -> None:
     try:
-        chromeLogLine# : ChromeLogLine
-            = ChromeLogLine(uncoloredLine)
+        # : ChromeLogLine
+        chromeLogLine = ChromeLogLine(uncoloredLine)
         coloredLog.log(chromeLogLine)
     except Exception as e:
         # log line doesn't follow standard chrome convention
