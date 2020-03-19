@@ -47,7 +47,7 @@ class ChromeLogLine(object):
         # : str
         self.dateTime = rawDateTime[1:]
 
-        if (len(rest.split(']')) != 2):
+        if (len(rest.split(']',  maxsplit=1)) != 2):
             raise Exception(uncoloredLine)
 
         # extract filename and message
