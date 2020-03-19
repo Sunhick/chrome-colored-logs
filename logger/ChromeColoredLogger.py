@@ -41,6 +41,10 @@ class ChromeColoredLogger(object):
         # print(f'{fg("red")} {logLine} {attr("reset")}')
         print("{}{}{}".format(fg("red"), logLine, attr("reset")))
 
+    def warning(self, logLine: ChromeLogLine) -> None:
+        # print(f'{fg("red")} {logLine} {attr("reset")}')
+        print("{}{}{}".format(fg("yellow"), logLine, attr("reset")))
+
     def fatal(self, logLine: ChromeLogLine) -> None:
         # print(f'{fg("red")} {logLine} {attr("reset")}')
         print("{}{}{}".format(fg("red"), logLine, attr("reset")))
