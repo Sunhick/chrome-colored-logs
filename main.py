@@ -35,7 +35,7 @@ def processLine(uncoloredLine: str) -> None:
     except Exception as e:
         # log line doesn't follow standard chrome convention
         # dump it as it is to the console "unformatted"
-        print(e.args)
+        print(str(e))
 
 def main(args: List[str]) -> None:
     installSigTermHandler()
