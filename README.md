@@ -7,5 +7,5 @@ $ git deps
 
 ## Run
 ```sh
-$ chrome | /path/to/ccl
+$ chrome 2>&1 | /path/to/ccl
 ```
