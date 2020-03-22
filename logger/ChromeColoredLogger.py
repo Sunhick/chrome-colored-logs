@@ -7,6 +7,8 @@ Colorize chrome logs for the terminal
 
 """
 
+from collections import defaultdict
+
 from .ChromeLogLine import ChromeLogLine
 
 from typing import (Callable,
@@ -20,18 +22,14 @@ from colored import (fg,
 class ChromeColoredLogger(object):
     def __init__(self) -> None:
         # : Dict[str, Callable[[ChromeLogLine], None]]
-        self.fmtPicker = {
-            "INFO": self.info,
-            "WARNING": self.warning,
-            "ERROR": self.error,
-            "FATAL": self.fatal,
-        }
+        self.fmtPicker = defaultdict(lambda: self.unknown)
+        self.fmtPicker["INFO"] = self.info
+        self.fmtPicker["WARNING"] = self.warning
+        self.fmtPicker["ERROR"] = self.error
+        self.fmtPicker["FATAL"] = self.fatal
 
     def log(self, chromeLogLine: ChromeLogLine) -> None:
-        if (chromeLogLine.logLevel in self.fmtPicker):
-            self.fmtPicker[chromeLogLine.logLevel](chromeLogLine)
-        else:
-            self.unknown(chromeLogLine)
+        self.fmtPicker[chromeLogLine.logLevel](chromeLogLine)
 
     def info(self, logLine: ChromeLogLine) -> None:
         # print(f'{fg("green")} {logLine} {attr("reset")}')

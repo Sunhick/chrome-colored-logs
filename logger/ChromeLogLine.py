@@ -26,7 +26,7 @@ kLogLevel = 1
 class ChromeLogLine(object):
     def __init__(self, uncoloredLine: str) -> None:
         # : List[str]
-        expectedLogLevels = ["INFO", "ERROR", "WARNING", "FATAL"]
+        # expectedLogLevels = ["INFO", "ERROR", "WARNING", "FATAL"]
         # : List[str]
         parsedLine = uncoloredLine.split(ChromeConstants.kLogDelimiter,
                                                     kParsedLogDelimiterLimit)
@@ -38,8 +38,8 @@ class ChromeLogLine(object):
 
         rawDateTime, level, rest = parsedLine
 
-        if (level not in expectedLogLevels):
-            raise Exception(uncoloredLine)
+        # if (level not in expectedLogLevels):
+        #     raise Exception(uncoloredLine)
 
         # Colorize the chrome log line
         # : str
