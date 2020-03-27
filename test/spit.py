@@ -4,11 +4,11 @@ import sys
 import time
 
 def main(args):
-    logi = "[0318/214434.970195:INFO:content_main_runner_impl.cc(974)] Chrome is running in full browser mode."
-    logw = "[0318/214434.970195:WARNING:content_main_runner_impl.cc(974)] Chrome is running in full browser mode."
-    logf = "[0318/214434.970195:FATAL:content_main_runner_impl.cc(974)] Chrome is running in full browser mode."
-    loge = "[0318/214434.970195:ERROR:content_main_runner_impl.cc(974)] Chrome is running in full browser mode."
-    logu = "[0318/214434.970195:NOPE:content_main_runner_impl.cc(974)] Chrome is running in full browser mode."
+    logi = "[28474:775:0318/214434.970195:INFO:content_main_runner_impl.cc(974)] Chrome is running in full browser mode."
+    logw = "[28474:775:0318/214434.970195:INFO:content_main_runner_impl.cc(974)] Chrome is running in full browser mode."
+    logf = "[28474:775:0318/214434.970195:INFO:content_main_runner_impl.cc(974)] Chrome is running in full browser mode."
+    loge = "[28474:775:0318/214434.970195:INFO:content_main_runner_impl.cc(974)] Chrome is running in full browser mode."
+    logu = "[28474:775:0318/214434.970195:INFO:content_main_runner_impl.cc(974)] Chrome is running in full browser mode."
     while True:
         print(logi)
         print(logw)
