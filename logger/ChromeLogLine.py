@@ -25,6 +25,9 @@ kLogLevel = 1
 
 class ChromeLogLine(object):
     def __init__(self, uncoloredLine: str) -> None:
+        # quick and fast way to eliminate if this log line doesn't need formatting.
+        if (uncoloredLine[0] != '['):
+            raise Exception(uncoloredLine)
         # : List[str]
         # expectedLogLevels = ["INFO", "ERROR", "WARNING", "FATAL"]
         # : List[str]
