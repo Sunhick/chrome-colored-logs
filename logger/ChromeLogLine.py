@@ -14,9 +14,9 @@ from typing_extensions import Final
 from .ChromeConstants import ChromeConstants
 
 # : Final
-kExpectedLogLineChunks = 3
+kExpectedLogLineChunks = 5
 # : Final
-kParsedLogDelimiterLimit = 2
+kParsedLogDelimiterLimit = 4
 
 # : Final
 kDateTime = 0
@@ -36,10 +36,13 @@ class ChromeLogLine(object):
         if (len(parsedLine) != kExpectedLogLineChunks):
             raise Exception(uncoloredLine)
 
-        rawDateTime, level, rest = parsedLine
+        pid, tid, rawDateTime, level, rest = parsedLine
 
         # if (level not in expectedLogLevels):
         #     raise Exception(uncoloredLine)
+
+        _, self.pid = pid.split('[', maxsplit=1)
+        self.tid = tid
 
         # Colorize the chrome log line
         # : str
