@@ -33,7 +33,9 @@ class ChromeColoredLogger(object):
 
     def info(self, logLine: ChromeLogLine) -> None:
         # print(f'{fg("green")} {logLine} {attr("reset")}')
-        print("{dtc}{dateTime} {gc}{level:1.1} {fileName:30} {message}{reset}".format(
+        print("{dtc}{pid} {tid} {dateTime} {gc}{level:1.1} {fileName:30} {message}{reset}".format(
+            pid = logLine.pid,
+            tid = logLine.tid,
             dateTime = logLine.dateTime,
             level = logLine.logLevel,
             fileName = logLine.fileName,
@@ -45,7 +47,9 @@ class ChromeColoredLogger(object):
 
     def error(self, logLine: ChromeLogLine) -> None:
         # print(f'{fg("red")} {logLine} {attr("reset")}')
-        print("{dtc}{dateTime} {rc}{level:1.1} {fileName:30} {message}{reset}".format(
+        print("{dtc}{pid} {tid} {dateTime} {rc}{level:1.1} {fileName:30} {message}{reset}".format(
+            pid = logLine.pid,
+            tid = logLine.tid,
             dateTime = logLine.dateTime,
             level = logLine.logLevel,
             fileName = logLine.fileName,
@@ -58,7 +62,9 @@ class ChromeColoredLogger(object):
 
     def warning(self, logLine: ChromeLogLine) -> None:
         # print(f'{fg("red")} {logLine} {attr("reset")}')
-        print("{dtc}{dateTime} {yc}{level:1.1} {fileName:30} {message}{reset}".format(
+        print("{dtc}{pid} {tid} {dateTime} {yc}{level:1.1} {fileName:30} {message}{reset}".format(
+            pid = logLine.pid,
+            tid = logLine.tid,
             dateTime = logLine.dateTime,
             level = logLine.logLevel,
             fileName = logLine.fileName,
@@ -71,7 +77,9 @@ class ChromeColoredLogger(object):
 
     def fatal(self, logLine: ChromeLogLine) -> None:
         # print(f'{fg("red")} {logLine} {attr("reset")}')
-        print("{dtc}{dateTime} {rc}{level:1.1} {fileName:30} {message}{reset}".format(
+        print("{dtc}{pid} {tid} {dateTime} {rc}{level:1.1} {fileName:30} {message}{reset}".format(
+            pid = logLine.pid,
+            tid = logLine.tid,
             dateTime = logLine.dateTime,
             level = logLine.logLevel,
             fileName = logLine.fileName,
@@ -83,7 +91,9 @@ class ChromeColoredLogger(object):
 
     def unknown(self, logLine: ChromeLogLine) -> None:
         # print(f'{fg("blue")} {logLine} {attr("reset")}')
-        print("{dtc}{dateTime} {bc}{level:1.1} {fileName:30} {message}{reset}".format(
+        print("{dtc}{pid} {tid} {dateTime} {bc}{level:1.1} {fileName:30} {message}{reset}".format(
+            pid = logLine.pid,
+            tid = logLine.tid,
             dateTime = logLine.dateTime,
             level = logLine.logLevel,
             fileName = logLine.fileName,
