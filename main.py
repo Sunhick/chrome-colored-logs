@@ -10,7 +10,6 @@ Starter file for chrome colored logging
 __author__  = "Sunil"
 
 import sys
-import signal
 
 from typing import List
 from typing_extensions import Final
@@ -19,13 +18,6 @@ from logger import *
 
 # : ChromeColoredLogger
 coloredLog = ChromeColoredLogger()
-
-def quit(signum, frame) -> None:
-    # TODO: might need threading.
-    sys.exit(0)
-
-def installSigTermHandler() -> None:
-    signal.signal(signal.SIGTERM, quit)
 
 def processLine(uncoloredLine: str) -> None:
     try:
@@ -38,8 +30,6 @@ def processLine(uncoloredLine: str) -> None:
         print(str(e))
 
 def main(args: List[str]) -> None:
-    installSigTermHandler()
-
     for rawLine in sys.stdin:
         processLine(rawLine.rstrip('\n'))
 

@@ -27,27 +27,26 @@ class ChromeColoredLogger(object):
         self.fmtPicker["WARNING"] = self.warning
         self.fmtPicker["ERROR"] = self.error
         self.fmtPicker["FATAL"] = self.fatal
+        self.msgFmt = "{dtc}{pid} {tid} {dateTime} {lc}{level:1.1} {fileName:30} {message}{reset}"
 
     def log(self, chromeLogLine: ChromeLogLine) -> None:
         self.fmtPicker[chromeLogLine.logLevel](chromeLogLine)
 
     def info(self, logLine: ChromeLogLine) -> None:
-        # print(f'{fg("green")} {logLine} {attr("reset")}')
-        print("{dtc}{pid} {tid} {dateTime} {gc}{level:1.1} {fileName:30} {message}{reset}".format(
+        print(self.msgFmt.format(
             pid = logLine.pid,
             tid = logLine.tid,
             dateTime = logLine.dateTime,
             level = logLine.logLevel,
             fileName = logLine.fileName,
             message = logLine.message,
-            gc = fg("green"),
+            lc = fg("green"),
             reset = attr("reset"),
             dtc = fg("dark_gray"),
         ))
 
     def error(self, logLine: ChromeLogLine) -> None:
-        # print(f'{fg("red")} {logLine} {attr("reset")}')
-        print("{dtc}{pid} {tid} {dateTime} {rc}{level:1.1} {fileName:30} {message}{reset}".format(
+        print(self.msgFmt.format(
             pid = logLine.pid,
             tid = logLine.tid,
             dateTime = logLine.dateTime,
@@ -55,14 +54,13 @@ class ChromeColoredLogger(object):
             fileName = logLine.fileName,
             message = logLine.message,
             reset = attr("reset"),
-            rc = fg("red"),
+            lc = fg("red"),
             dtc = fg("dark_gray"),
         ))
 
 
     def warning(self, logLine: ChromeLogLine) -> None:
-        # print(f'{fg("red")} {logLine} {attr("reset")}')
-        print("{dtc}{pid} {tid} {dateTime} {yc}{level:1.1} {fileName:30} {message}{reset}".format(
+        print(self.msgFmt.format(
             pid = logLine.pid,
             tid = logLine.tid,
             dateTime = logLine.dateTime,
@@ -70,14 +68,13 @@ class ChromeColoredLogger(object):
             fileName = logLine.fileName,
             message = logLine.message,
             reset = attr("reset"),
-            yc = fg("yellow"),
+            lc = fg("yellow"),
             dtc = fg("dark_gray"),
         ))
 
 
     def fatal(self, logLine: ChromeLogLine) -> None:
-        # print(f'{fg("red")} {logLine} {attr("reset")}')
-        print("{dtc}{pid} {tid} {dateTime} {rc}{level:1.1} {fileName:30} {message}{reset}".format(
+        print(self.msgFmt.format(
             pid = logLine.pid,
             tid = logLine.tid,
             dateTime = logLine.dateTime,
@@ -85,20 +82,19 @@ class ChromeColoredLogger(object):
             fileName = logLine.fileName,
             message = logLine.message,
             reset = attr("reset"),
-            rc = fg("red"),
+            lc = fg("red"),
             dtc = fg("dark_gray"),
         ))
 
     def unknown(self, logLine: ChromeLogLine) -> None:
-        # print(f'{fg("blue")} {logLine} {attr("reset")}')
-        print("{dtc}{pid} {tid} {dateTime} {bc}{level:1.1} {fileName:30} {message}{reset}".format(
+        print(self.msgFmt.format(
             pid = logLine.pid,
             tid = logLine.tid,
             dateTime = logLine.dateTime,
             level = logLine.logLevel,
             fileName = logLine.fileName,
             message = logLine.message,
-            bc = fg("blue"),
+            lc = fg("blue"),
             reset = attr("reset"),
             dtc = fg("dark_gray"),
         ))

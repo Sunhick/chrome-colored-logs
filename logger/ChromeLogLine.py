@@ -16,33 +16,27 @@ from .ChromeConstants import ChromeConstants
 # : Final
 kExpectedLogLineChunks = 5
 # : Final
-kParsedLogDelimiterLimit = 4
-
-# : Final
-kDateTime = 0
-# : Final
-kLogLevel = 1
+kParsedLogDelimiterLimit = kExpectedLogLineChunks - 1 # Always one less than expected chunks
 
 class ChromeLogLine(object):
     def __init__(self, uncoloredLine: str) -> None:
         # quick and fast way to eliminate if this log line doesn't need formatting.
         if (len(uncoloredLine) == 0 or uncoloredLine[0] != '['):
             raise Exception(uncoloredLine)
-        # : List[str]
-        # expectedLogLevels = ["INFO", "ERROR", "WARNING", "FATAL"]
+
         # : List[str]
         parsedLine = uncoloredLine.split(ChromeConstants.kLogDelimiter,
                                                     kParsedLogDelimiterLimit)
 
+        # Chrome log line format: [process_id:thread_id:time_stamp:log_level:file_name(line_number)] message
+        # For instance:
         # [28474:775:0318/214434.970195:INFO:content_main_runner_impl.cc(974)] Chrome is running in full browser mode.
-        # chrome log line doesn't follow
+
+        # Parsed more? Probably log line doesn't adhere to expected format.
         if (len(parsedLine) != kExpectedLogLineChunks):
             raise Exception(uncoloredLine)
 
         pid, tid, rawDateTime, level, rest = parsedLine
-
-        # if (level not in expectedLogLevels):
-        #     raise Exception(uncoloredLine)
 
         _, self.pid = pid.split('[', maxsplit=1)
         self.tid = tid
@@ -53,16 +47,13 @@ class ChromeLogLine(object):
         # : str
         self.dateTime = rawDateTime[1:]
 
-        if (len(rest.split(']',  maxsplit=1)) != 2):
+        fileNameMsg = rest.split(']',  maxsplit=1)
+        if (len(fileNameMsg) != 2):
             raise Exception(uncoloredLine)
 
         # extract filename and message
-        fileName, msg = rest.split(']', maxsplit=1)
+        self.fileName, self.message = fileNameMsg
 
-        # : str
-        self.fileName = fileName
-        #: str
-        self.message = msg
 
     def __str__(self) -> str:
         # return f"{self.dateTime} {self.logLevel} {self.fileName} {self.message}"
